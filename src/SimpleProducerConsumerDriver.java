@@ -55,7 +55,7 @@ public class SimpleProducerConsumerDriver {
 
     public static void main(String[] args) {
         csc311_producer_consumer_lab.SimpleProducerConsumerDriver simpleProducerConsumerDriver = new csc311_producer_consumer_lab.SimpleProducerConsumerDriver();
-        simpleProducerConsumerDriver.runProducerConsumer();
+        simpleProducerConsumerDriver.runProducerConsumer(2, 3);
         try {
             sleep(2000);
         } catch (InterruptedException e) {
