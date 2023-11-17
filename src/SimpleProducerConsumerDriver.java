@@ -41,13 +41,13 @@ public class SimpleProducerConsumerDriver {
         return Math.random();
     }
 
-    private void runProducerConsumer() {
-        for (int i = 0; i < 2; i++) {
+    private void runProducerConsumer(int num1, int num2) {
+        for (int i = 0; i < num1; i++) {
             Thread producerThread = new Thread(this::produce);
             producerThread.start();
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < num2; i++) {
             Thread consumerThread = new Thread(this::consume);
             consumerThread.start();
         }
