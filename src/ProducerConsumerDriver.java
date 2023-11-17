@@ -31,15 +31,13 @@ public class ProducerConsumerDriver {
         MyThread.waitForAllThreadsToComplete(threads);
     }
 
-    public static void demoMultipleProducersAndMultipleConsumers() {
+    public static void demoMultipleProducersAndMultipleConsumers(int prodCount, int consCount) {
         DataQueue dataQueue = new DataQueue(MAX_QUEUE_CAPACITY);
-        int producerCount = 5;
-        int consumerCount = 5;
         List<Thread> threads = new ArrayList<>();
         List<Producer> producers = new ArrayList<>();
         List<Consumer> consumers = new ArrayList<>();
 
-        for(int i = 0; i < producerCount; i++) {
+        for(int i = 0; i < prodCount; i++) {
             Producer producer = new Producer(dataQueue);
             Thread producerThread = new Thread(producer);
             producerThread.start();
@@ -47,7 +45,7 @@ public class ProducerConsumerDriver {
             producers.add(producer);
         }
 
-        for(int i = 0; i < consumerCount; i++) {
+        for(int i = 0; i < consCount; i++) {
             Consumer consumer = new Consumer(dataQueue);
             Thread consumerThread = new Thread(consumer);
             consumerThread.start();
@@ -67,6 +65,6 @@ public class ProducerConsumerDriver {
 
     public static void main(String[] args) {
         demoSingleProducerAndSingleConsumer();
-        demoMultipleProducersAndMultipleConsumers();
+        demoMultipleProducersAndMultipleConsumers(5, 5);
     }
 }
